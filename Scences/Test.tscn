@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Bump.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Scences/Trail.tscn" type="PackedScene" id=3]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 0.58
+bounce = 0.79
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.0156
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.557143, 0.381818 ), 0.964187, 0.964187, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="PhysicsMaterial" id=4]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 29.5, 157 )
+
+[node name="game" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 396, 248 )
+mass = 0.5
+physics_material_override = SubResource( 2 )
+gravity_scale = 6.17
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
+current = true
+
+[node name="Trail" parent="RigidBody2D" instance=ExtResource( 3 )]
+width = 5.0
+width_curve = SubResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -1, 136, 3, 602, 453, 599, 1018, 597, 1023, 0, 1044, -267, 1353, -230, 1487, -564, 1376, -577, 1335, -718, 1239, -546, 1123, -538, 1050, -372, 800, -249, 645, 10, 590, 56, 722, -1, 810, -58, 921, -96, 936, 45, 959, 80, 949, 130, 897, 171, 817, 260, 697, 393, 645, 408, 681, 410, 679, 551, 361, 552, 362, 407, 391, 407, 340, 365, 299, 334, 229, 224, 185, 189, 124, 144, 99, 90, 138, 31, 220, -20, 348, 27, 434, 58, 317, -30, 194, -168, 164, -242, 335, -239, 135, -278, 52, -479, -103, -763, 45, 3 )
+
+[node name="Bump" type="RigidBody2D" parent="."]
+position = Vector2( 646, 441 )
+rotation = 1.5708
+mode = 2
+mass = 10.0
+physics_material_override = SubResource( 4 )
+can_sleep = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bump"]
+position = Vector2( 0.5, 126 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Bump"]
+position = Vector2( 0, 125.5 )
+scale = Vector2( 1, 4.92188 )
+texture = ExtResource( 2 )

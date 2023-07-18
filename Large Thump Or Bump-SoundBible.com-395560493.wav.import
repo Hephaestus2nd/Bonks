@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Large Thump Or Bump-SoundBible.com-395560493.wav-fd490e4a10f8fe6c80a8f8f211a869d4.sample"
+
+[deps]
+
+source_file="res://Large Thump Or Bump-SoundBible.com-395560493.wav"
+dest_files=[ "res://.import/Large Thump Or Bump-SoundBible.com-395560493.wav-fd490e4a10f8fe6c80a8f8f211a869d4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
