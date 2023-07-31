@@ -13,9 +13,10 @@ func _ready():
 
 
 func _process(delta):
-	
+	#  the horizontal and vertical components of the forces are applied to the centre of the circle
 	var ImpulsePointY = Vector2(0.0,$CollisionShape2D.shape.radius/2)
 	var ImpulsePointX = Vector2($CollisionShape2D.shape.radius/2,0.0)
+	# applies force in a certain direction when keys are pressed
 	if Input.is_action_pressed("up") :
 		apply_impulse(ImpulsePointY , Vector2(0,-boost/20))
 		boost = boost * 0.97
@@ -28,8 +29,8 @@ func _process(delta):
 		apply_impulse(ImpulsePointX,Vector2(7,0))
 
 
-
 func _on_Player_body_entered(body):
+	# what happens every frame when the player is touching map 
 	var speed = get_linear_velocity() 
 	print(speed)
 	touch = true
