@@ -8,8 +8,8 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$ViewportContainer/Viewport/Player/Camera2D.zoom=Vector2(15,15)
-	
+	#$ViewportContainer/Viewport/Player/Camera2D.zoom=Vector2(15,15)
+	$ViewportContainer/Viewport/StaticBody2D/Camera2D.zoom=Vector2(15,15)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

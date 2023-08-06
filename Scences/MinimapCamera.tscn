@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="Minimap" type="Camera2D"]
+zoom = Vector2( 20, 20 )
