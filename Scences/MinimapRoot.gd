@@ -1,22 +1,18 @@
 extends Node2D
 
-onready var map=preload("res://Scences/HUD.tscn")
-var mm
+
+onready var dot    = $Dot
+onready var player = get_node("/root/Playground/Player")
+# Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
-#func _ready():
-#	set_mm()
 
-#func set_mm():
-	#mm=map.instance()
-	
-	#$Player/CanvasLayer.add_child(mm)
-	
-	
-	
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+func _process(delta):
+	dot.position = player.position/8
 #	pass
