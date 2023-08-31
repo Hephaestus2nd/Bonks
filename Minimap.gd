@@ -17,7 +17,7 @@ onready var dot = $ViewportContainer/Viewport/Dot
 var player = null  # Variable to hold the player instance
 
 func _ready():
-	$ViewportContainer/Viewport/Minimap/Dot/Camera2D.zoom=Vector2(25,25)
+	$ViewportContainer/Viewport/Minimap/Dot/Camera2D.zoom=Vector2(30,30)
 	
 	#failed networking
 	"""var player_scene = preload("res://Scences/Player.tscn")
