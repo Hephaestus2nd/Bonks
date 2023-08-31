@@ -21,7 +21,6 @@ render_target_update_mode = 3
 
 [node name="Dot" type="Sprite" parent="ViewportContainer/Viewport"]
 position = Vector2( 400, 200 )
-scale = Vector2( 0.03, 0.03 )
 texture = ExtResource( 1 )
 script = ExtResource( 4 )
 

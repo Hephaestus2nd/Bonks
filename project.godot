@@ -14,6 +14,10 @@ config/name="Bonks"
 run/main_scene="res://Scences/Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Scences/GlobalController.tscn"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

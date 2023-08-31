@@ -14,5 +14,5 @@ onready var player = get_node("/root/Playground/Player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	dot.position = player.position/8
+	dot.position = player.position
 #	pass

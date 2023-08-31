@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Basic_red_dot.png-a6e83a0f5ddb3e5c78d0cc5355ed1768.stex"
+path="res://.import/pngwing.com.png-f7eb3d316c6a5f74c7013d70c9ac8b77.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Basic_red_dot.png"
-dest_files=[ "res://.import/Basic_red_dot.png-a6e83a0f5ddb3e5c78d0cc5355ed1768.stex" ]
+source_file="res://Sprites/pngwing.com.png"
+dest_files=[ "res://.import/pngwing.com.png-f7eb3d316c6a5f74c7013d70c9ac8b77.stex" ]
 
 [params]
 

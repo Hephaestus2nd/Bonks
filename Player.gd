@@ -11,8 +11,13 @@ func _ready():
 	pass
 
 var network_master = true # Set to true in one instance, false in the other
-
+var new_position
 func _physics_process(delta):
+	new_position = global_position
+	position = new_position
+	
+	Globals.set_player_global_position(global_position)
+
 	#  the horizontal and vertical components of the forces are applied to the centre of the circle
 	var ImpulsePointY = Vector2(0.0,$CollisionShape2D.shape.radius/2)
 	var ImpulsePointX = Vector2($CollisionShape2D.shape.radius/2,0.0)
@@ -28,8 +33,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("right"):
 		apply_impulse(ImpulsePointX,Vector2(7,0))
 	 # Update player position logic here
-	if network_master:
-		rpc_unreliable("_sync_position", position)
+	#if network_master:
+	#	rpc_unreliable("_sync_position", position)
 	
 	
 func _sync_position(new_position):
@@ -44,4 +49,4 @@ func _on_Player_body_entered(body):
 	boost = 800
 	$CanvasLayer/Label.text = "Boost Power: " + str(boost)	
 	print("collision oocccuers with " + body.get_name())
-	print(position)
+	
