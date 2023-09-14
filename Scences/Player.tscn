@@ -3,7 +3,7 @@
 [ext_resource path="res://Scences/Trail.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://Large Thump Or Bump-SoundBible.com-395560493.wav" type="AudioStream" id=5]
+[ext_resource path="res://sound/Large Thump Or Bump-SoundBible.com-395560493.wav" type="AudioStream" id=5]
 
 [sub_resource type="PhysicsMaterial" id=2]
 friction = 0.22
