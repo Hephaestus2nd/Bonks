@@ -36,3 +36,16 @@ margin_left = 0.0
 margin_bottom = 0.0
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource( 6 )]
+
+[node name="Stopwatch" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Stopwatch"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -300.0
+margin_top = 3.0
+margin_right = -180.0
+margin_bottom = 39.0
+rect_scale = Vector2( 5, 5 )
+text = "00:00:00"
+align = 1

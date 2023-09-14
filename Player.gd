@@ -9,7 +9,7 @@ var touch = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-
+var A = 0.97
 var network_master = true # Set to true in one instance, false in the other
 var new_position
 func _physics_process(delta):
@@ -24,7 +24,7 @@ func _physics_process(delta):
 	# applies force in a certain direction when keys are pressed
 	if Input.is_action_pressed("up") :
 		apply_impulse(ImpulsePointY , Vector2(0,-boost/20))
-		boost = boost * 0.97
+		boost = boost * A
 		$CanvasLayer/Label.text = "Boost Power: " + str(boost)
 	if Input.is_action_pressed("down"):
 		apply_impulse(ImpulsePointY, Vector2(0,13))
