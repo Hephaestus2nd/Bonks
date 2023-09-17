@@ -10,7 +10,7 @@ var touch = false
 func _ready():
 	pass
 var A = 0.97
-var network_master = true # Set to true in one instance, false in the other
+
 var new_position
 func _physics_process(delta):
 	new_position = global_position
@@ -23,8 +23,9 @@ func _physics_process(delta):
 	var ImpulsePointX = Vector2($CollisionShape2D.shape.radius/2,0.0)
 	# applies force in a certain direction when keys are pressed
 	if Input.is_action_pressed("up") :
-		apply_impulse(ImpulsePointY , Vector2(0,-boost/20))
+		apply_impulse(ImpulsePointY , Vector2(0,-boost*60*delta/20))
 		boost = boost * A
+		
 		$CanvasLayer/Label.text = "Boost Power: " + str(boost)
 	if Input.is_action_pressed("down"):
 		apply_impulse(ImpulsePointY, Vector2(0,13))
