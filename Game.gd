@@ -1,7 +1,7 @@
 extends Node2D
 onready var game_start_time = OS.get_ticks_msec()
 
-
+const SAVE_FILE_PATH = "user://savedata.save"
 func _process(delta):
 	$Stopwatch/Control/Label.text = get_time()
 
@@ -10,8 +10,10 @@ var mm
 # var a = 2
 # var b = "text"
 
+var highscore = 10000
+var current_time
 func get_time():
-	var current_time = OS.get_ticks_msec() - game_start_time
+	current_time = OS.get_ticks_msec() - game_start_time
 	var minutes = current_time/1000/60
 	var seconds = current_time/1000%60
 	var msec = current_time%1000/10
@@ -29,7 +31,7 @@ func get_time():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	load_highscore()
 	"""$StartButton.connect("pressed", self, "_on_start_button_pressed")
 	$StopButton.connect("pressed", self, "_on_stop_button_pressed")
 	$ResetButton.connect("pressed", self, "_on_reset_button_pressed")
@@ -48,3 +50,47 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func save_highscore():
+	var save_data = File.new()
+	save_data.open(SAVE_FILE_PATH, File.WRITE)
+	save_data.store_var(highscore)
+	save_data.close()
+	
+func load_highscore():
+	var save_data = File.new()
+	if save_data.file_exists(SAVE_FILE_PATH):
+		save_data.open(SAVE_FILE_PATH, File.READ)
+		highscore = save_data.get_var()
+		save_data.close()
+	
+	
+func _on_Win_body_entered(body):
+	# In your game script or player script when the race is completed:
+	print("win")
+	var player_time = current_time
+	var player_name = "Player 1"  # Replace with the player's name
+
+	# Create a dictionary to store the player's time and name
+	var player_entry = {
+		"name": player_name,
+		"time": player_time
+	}
+	#since less time is better score
+	print(current_time)
+	if highscore == null:
+		print("WHYYYYYYYYYYYYYYYYYYY")
+	if current_time != null and current_time < highscore:
+		highscore = current_time
+		save_highscore()
+		
+	
+	
+	
+	
+	
+
+	# Add the player's entry to the high scores list
+	#high_scores.append(player_entry)
+
+	

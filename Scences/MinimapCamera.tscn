@@ -20,3 +20,4 @@ texture = ExtResource( 4 )
 current = true
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 0 )
