@@ -10,7 +10,7 @@ var mm
 # var a = 2
 # var b = "text"
 
-var highscore = 10000
+var highscore = 1
 var current_time
 func get_time():
 	current_time = OS.get_ticks_msec() - game_start_time
@@ -32,6 +32,7 @@ func get_time():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_highscore()
+	print(highscore)
 	"""$StartButton.connect("pressed", self, "_on_start_button_pressed")
 	$StopButton.connect("pressed", self, "_on_stop_button_pressed")
 	$ResetButton.connect("pressed", self, "_on_reset_button_pressed")
@@ -63,11 +64,11 @@ func load_highscore():
 		save_data.open(SAVE_FILE_PATH, File.READ)
 		highscore = save_data.get_var()
 		save_data.close()
-	
+	Stats.highscore = highscore
 	
 func _on_Win_body_entered(body):
 	# In your game script or player script when the race is completed:
-	print("win")
+	"""print("win")
 	var player_time = current_time
 	var player_name = "Player 1"  # Replace with the player's name
 
@@ -75,11 +76,9 @@ func _on_Win_body_entered(body):
 	var player_entry = {
 		"name": player_name,
 		"time": player_time
-	}
+	}"""
 	#since less time is better score
-	print(current_time)
-	if highscore == null:
-		print("WHYYYYYYYYYYYYYYYYYYY")
+	
 	if current_time != null and current_time < highscore:
 		highscore = current_time
 		save_highscore()

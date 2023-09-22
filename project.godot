@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://Scences/GlobalController.tscn"
+Stats="*res://Scences/Stats.gd"
 
 [gui]
 
