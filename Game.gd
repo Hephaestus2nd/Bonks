@@ -1,6 +1,6 @@
 extends Node2D
 onready var game_start_time = OS.get_ticks_msec()
-
+onready var menu_layer = $WinMenuLayer
 const SAVE_FILE_PATH = "user://savedata.save"
 func _process(delta):
 	$Stopwatch/Control/Label.text = get_time()
@@ -78,8 +78,9 @@ func _on_Win_body_entered(body):
 		"time": player_time
 	}"""
 	#since less time is better score
-	
-	if current_time != null and current_time < highscore:
+	menu_layer._init_win_menu(current_time)
+	$Player.position = Vector2()
+	if current_time != null and current_time > highscore:
 		highscore = current_time
 		save_highscore()
 		

@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+onready var score_label = $WinMenu/VBoxContainer/Time
+onready var highscore_label = $WinMenu/VBoxContainer/BestTime
+onready var win_menu = $WinMenu
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -29,3 +32,24 @@ func _process(delta):
 	 
 	
 	$WinMenu/VBoxContainer/BestTime.text = "Best Time:"+ get_highscore()
+
+func _init_win_menu(score):
+	var minutes = score/1000/60
+	var seconds = score/1000%60
+	var msec = score%1000/10
+	if minutes < 10:
+		minutes = "0" + str(minutes)
+	if seconds <10:
+		seconds = "0" + str(seconds)
+	if msec < 10:
+		if msec == 0:
+			msec = "00"
+		else:
+			msec = "0"+str(msec)
+	score_label.text = "score:" + str(minutes)+":" + str(seconds)+":"+str(msec)
+	win_menu.visible = true
+	
+	
+func _on_RestartButton_pressed():
+	get_tree().reload_current_scene()
+	
