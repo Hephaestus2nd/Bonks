@@ -22,17 +22,20 @@ func _physics_process(delta):
 	var ImpulsePointY = Vector2(0.0,$CollisionShape2D.shape.radius/2)
 	var ImpulsePointX = Vector2($CollisionShape2D.shape.radius/2,0.0)
 	# applies force in a certain direction when keys are pressed
+	if Input.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
+	
 	if Input.is_action_pressed("up") :
-		apply_impulse(ImpulsePointY , Vector2(0,-boost*600*delta/20))
+		apply_impulse(ImpulsePointY , Vector2(0,-boost*60*delta/20))
 		boost = boost * A
 		
 		$CanvasLayer/Label.text = "Boost Power: " + str(boost)
 	if Input.is_action_pressed("down"):
-		apply_impulse(ImpulsePointY, Vector2(0,130))
+		apply_impulse(ImpulsePointY, Vector2(0,13*60*delta))
 	if Input.is_action_pressed("Left"):
-		apply_impulse(ImpulsePointX,Vector2(-70,0))
+		apply_impulse(ImpulsePointX,Vector2(-70*6*delta,0))
 	if Input.is_action_pressed("right"):
-		apply_impulse(ImpulsePointX,Vector2(70,0))
+		apply_impulse(ImpulsePointX,Vector2(70*6*delta,0))
 	 # Update player position logic here
 	#if network_master:
 	#	rpc_unreliable("_sync_position", position)
