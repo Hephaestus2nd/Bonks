@@ -13,7 +13,7 @@ extends Control
 	#$ViewportContainer/Viewport/StaticBody2D/Camera2D.zoom=Vector2(15,15)
 	
 
-onready var dot = $ViewportContainer/Viewport/Dot
+#onready var dot = $ViewportContainer/Viewport/Dot
 var player = null  # Variable to hold the player instance
 
 func _ready():
