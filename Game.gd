@@ -81,6 +81,7 @@ func _on_Win_body_entered(body):
 	menu_layer._init_win_menu(current_time)
 	$Player.position = Vector2()
 	if current_time != null and current_time < highscore:
+		
 		highscore = current_time
 		save_highscore()
 		

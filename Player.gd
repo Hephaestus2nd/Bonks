@@ -33,9 +33,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("down"):
 		apply_impulse(ImpulsePointY, Vector2(0,13*60*delta))
 	if Input.is_action_pressed("Left"):
-		apply_impulse(ImpulsePointX,Vector2(-70*6*delta,0))
+		apply_impulse(ImpulsePointX,Vector2(-7*60*delta,0))
 	if Input.is_action_pressed("right"):
-		apply_impulse(ImpulsePointX,Vector2(70*6*delta,0))
+		apply_impulse(ImpulsePointX,Vector2(7*60*delta,0))
 	 # Update player position logic here
 	#if network_master:
 	#	rpc_unreliable("_sync_position", position)

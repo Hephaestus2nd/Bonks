@@ -72,7 +72,7 @@ text = "00:00:00"
 align = 1
 
 [node name="Win" type="Area2D" parent="."]
-position = Vector2( 180120, -28327 )
+position = Vector2( 187837, -25895 )
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
