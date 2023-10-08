@@ -1,86 +1,91 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Scences/Trail.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Large Thump Or Bump-SoundBible.com-395560493.wav" type="AudioStream" id=4]
-
-[sub_resource type="PhysicsMaterial" id=2]
-friction = 0.22
-bounce = 0.71
-
-[sub_resource type="Curve" id=4]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.347619, 0.127273 ), 0.505348, 0.505348, 0, 0, Vector2( 0.67619, 0.472727 ), 1.27273, 1.27273, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="Gradient" id=5]
-offsets = PoolRealArray( 0, 0.504587, 1 )
-colors = PoolColorArray( 0, 0, 0, 0, 1, 0.592728, 0.273438, 1, 1, 1, 1, 1 )
-
-[sub_resource type="CircleShape2D" id=3]
-radius = 30.0
+[ext_resource path="res://Scences/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game.gd" type="Script" id=2]
+[ext_resource path="res://Scences/map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scences/Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://Scences/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Bg_music.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fonts/joystix monospace.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://Scences/Win.gd" type="Script" id=8]
+[ext_resource path="res://Scences/WinScreen.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Environment" id=6]
 background_mode = 4
 glow_enabled = true
 
+[sub_resource type="DynamicFont" id=7]
+size = 13
+font_data = ExtResource( 7 )
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 566.0
+height = 5590.0
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 337.0
+height = 1628.0
+
 [node name="Playground" type="Node2D"]
+script = ExtResource( 2 )
 
-[node name="Player" type="RigidBody2D" parent="."]
-modulate = Color( 2.89, 1.74, 1.15, 1 )
-position = Vector2( 361, 257 )
-physics_material_override = SubResource( 2 )
-gravity_scale = 4.0
-contacts_reported = 1
-contact_monitor = true
-script = ExtResource( 1 )
-
-[node name="Trail" parent="Player" instance=ExtResource( 3 )]
-width_curve = SubResource( 4 )
-gradient = SubResource( 5 )
-length = 30
-
-[node name="Sprite" type="Sprite" parent="Player"]
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 3 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
-zoom = Vector2( 2, 2 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-
-[node name="Label" type="Label" parent="Player/CanvasLayer"]
-margin_left = 78.0
-margin_top = 33.0
-margin_right = 162.0
-margin_bottom = 47.0
-rect_scale = Vector2( 2.29054, 2.30161 )
-text = "Boost power:"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource( 4 )
-pitch_scale = 0.54
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 387, 514 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -511, -211, -472, -384, -334, -212, -346, -53, -332, 55, 82, 60, 342, -90, 311, -106, 347, -130, 351, -201, 487, -37, 794, 84, 1447, 82, 1507, 106, 2319, 162, 2654, 62, 3016, -218, 3154, -318, 3510, 198, 3658, 336, 4519, 40, 5188, 452, 5410, 520, 5912, 686, 6468, 713, 6900, 659, 7210, 584, 7616, 488, 7989, 344, 8165, 200, 8475, -51, 8892, -435, 9191, -766, 9596, -1049, 9367, -692, 9879, 2437, 13906, 3195, 15562, -928, 15938, -841, 23823, -706, 24261, -993, 24393, -1317, 24458, -1647, 24968, -1083, 26271, -261, 32422, -499, 32697, -840, 32198, -1424, 32412, -2066, 31881, -2181, 32084, -2579, 31870, -2807, 32280, -3122, 31652, -3863, 32098, -4489, 32080, -5288, 31642, -5601, 31595, -6201, 31984, -6699, 31824, -7569, 31399, -8081, 31970, -8680, 31428, -9079, 31852, -10049, 31371, -10761, 30516, -11160, 34443, -10168, 36536, -7390, 37183, -5982, 38705, -7390, 38515, -8417, 37868, -10967, 39072, -12342, 40127, -9848, 40624, -8604, 40852, -7899, 41190, -7088, 41555, -6331, 41892, -5730, 42420, -5039, 42932, -4463, 43382, -4077, 44005, -3619, 44700, -3216, 45467, -2873, 46263, -2631, 48408, -2472, 49272, -2644, 49404, -2474, 50875, -2427, 51802, -2529, 51628, -2779, 60844, -2554, 60682, -3078, 58183, -3467, 60282, -3528, 61279, -3845, 61974, -4600, 64044, -5582, 70716, -10697, 72377, -18560, 74019, -22887, 75204, -23205, 80545, -25513, 84596, -18998, 75660, -22402, 74099, -19859, 71441, -10154, 67997, -7043, 61325, -2335, 60969, -1954, 39145, 74, 36819, 386, 15963, -578, 15592, 3206, 15649, 3546, 14404, 3998, 9596, 3070, 8921, 222, 8715, 739, 7893, 1097, 5309, 921, 4160, 358, 3427, 410, 3066, -135, 2478, 234, 1696, 160, 515, 138, -504, 145 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( 40601, -12047, 41319, -9533, 42253, -7090, 42978, -5510, 43657, -5397, 44449, -4752, 46542, -5340, 47243, -4752, 50399, -3791, 50898, -4185, 51926, -3852, 51800, -4180, 56157, -11332, 62530, -9640, 65249, -10375, 64463, -13305, 67750, -17574, 64944, -15854, 55795, -13748, 50936, -9229, 48648, -9627, 42114, -14799, 40918, -14778, 41281, -14051 )
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2( 750.015, 0 )
-scale = Vector2( 1.44129, 1 )
-polygon = PoolVector2Array( 3051.42, -1069, 3730.68, -826, 3981.84, -1295, 4256.59, -1663, 4593.79, -2240, 6283.25, -3892, 7155.38, -4502, 7840.88, -4682, 8638.08, -4628, 9186.2, -4520, 10015.3, -4009, 10682.1, -3667, 12860.7, -3541, 15511.1, -5763, 17167.2, -5842, 18077.5, -7924, 16492.2, -8240, 11384.9, -11868, 8378, -6117, 4632, -3850, 3563, -3765, 2237, -3280, 626, -2910, -484.993, -785, -379.532, -779, -286.559, -717, 6.23395, -653, 211.606, -547, 429.466, -535, 1341.15, -1414, 1759.52, -1646, 2411.72, -1194, 2788.46, -1075 )
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 27, -123 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 6 )
 
-[connection signal="body_entered" from="Player" to="Player" method="_on_Player_body_entered"]
+[node name="StaticBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 2, 2 )
+script = ExtResource( 4 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_bottom = 1.0
+margin_left = 0.0
+margin_bottom = 0.0
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 6 )]
+
+[node name="Stopwatch" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Stopwatch"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Stopwatch/Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -460.0
+margin_top = 1.0
+margin_right = -368.0
+margin_bottom = 21.0
+rect_scale = Vector2( 5, 5 )
+custom_fonts/font = SubResource( 7 )
+text = "00:00:00"
+align = 1
+
+[node name="Win" type="Area2D" parent="."]
+position = Vector2( 187837, -25895 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
+position = Vector2( 610, -542 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Win"]
+position = Vector2( 5935, 1962 )
+shape = SubResource( 9 )
+
+[node name="WinMenuLayer" parent="." instance=ExtResource( 9 )]
+
+[connection signal="body_entered" from="Win" to="." method="_on_Win_body_entered"]
