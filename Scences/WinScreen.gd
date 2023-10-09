@@ -46,7 +46,7 @@ func _init_win_menu(score):
 			msec = "00"
 		else:
 			msec = "0"+str(msec)
-	score_label.text = "score:" + str(minutes)+":" + str(seconds)+":"+str(msec)
+	score_label.text = "Time:" + str(minutes)+":" + str(seconds)+":"+str(msec)
 	win_menu.visible = true
 	
 	
