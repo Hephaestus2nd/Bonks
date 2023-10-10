@@ -22,6 +22,8 @@ func _physics_process(delta):
 	var ImpulsePointY = Vector2(0.0,$CollisionShape2D.shape.radius/2)
 	var ImpulsePointX = Vector2($CollisionShape2D.shape.radius/2,0.0)
 	# applies force in a certain direction when keys are pressed
+	if Input.is_action_pressed("quit"):
+		get_tree().quit()
 	if Input.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
 	

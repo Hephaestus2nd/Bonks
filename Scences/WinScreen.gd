@@ -53,3 +53,7 @@ func _init_win_menu(score):
 func _on_RestartButton_pressed():
 	get_tree().reload_current_scene()
 	
+
+
+func _on_QuitButton_pressed():
+	get_tree().quit()
