@@ -28,7 +28,7 @@ func get_highscore():
 		else:
 			msec = "0"+str(msec)
 	return (str(minutes)+":" + str(seconds)+":"+str(msec))
-func _process(delta):
+func _process(_delta):
 	 
 	
 	$WinMenu/VBoxContainer/BestTime.text = "Best Time:"+ get_highscore()

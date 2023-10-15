@@ -14,6 +14,9 @@
 [sub_resource type="Environment" id=6]
 background_mode = 4
 glow_enabled = true
+glow_intensity = 0.95
+glow_bloom = 0.25
+glow_hdr_threshold = 0.66
 
 [sub_resource type="DynamicFont" id=7]
 size = 56
