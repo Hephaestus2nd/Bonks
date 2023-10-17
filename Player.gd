@@ -22,6 +22,8 @@ func _physics_process(delta):
 	var ImpulsePointY = Vector2(0.0,$CollisionShape2D.shape.radius/2)
 	var ImpulsePointX = Vector2($CollisionShape2D.shape.radius/2,0.0)
 	# applies force in a certain direction when keys are pressed
+	if Input.is_action_pressed("quit"):
+		get_tree().quit()
 	if Input.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
 	
@@ -41,12 +43,12 @@ func _physics_process(delta):
 	#	rpc_unreliable("_sync_position", position)
 	
 	
-func _sync_position(new_position):
+func _sync_position(_new_position):
 	position = new_position
 	emit_signal("player_position_changed" , position)
 
 
-func _on_player_body_entered(area):
+func _on_player_body_entered(_area):
 	emit_signal("win")
 
 

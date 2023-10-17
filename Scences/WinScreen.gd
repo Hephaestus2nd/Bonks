@@ -28,7 +28,7 @@ func get_highscore():
 		else:
 			msec = "0"+str(msec)
 	return (str(minutes)+":" + str(seconds)+":"+str(msec))
-func _process(delta):
+func _process(_delta):
 	 
 	
 	$WinMenu/VBoxContainer/BestTime.text = "Best Time:"+ get_highscore()
@@ -46,10 +46,14 @@ func _init_win_menu(score):
 			msec = "00"
 		else:
 			msec = "0"+str(msec)
-	score_label.text = "score:" + str(minutes)+":" + str(seconds)+":"+str(msec)
+	score_label.text = "Time:" + str(minutes)+":" + str(seconds)+":"+str(msec)
 	win_menu.visible = true
 	
 	
 func _on_RestartButton_pressed():
 	get_tree().reload_current_scene()
 	
+
+
+func _on_QuitButton_pressed():
+	get_tree().quit()
