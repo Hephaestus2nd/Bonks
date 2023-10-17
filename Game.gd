@@ -2,7 +2,7 @@ extends Node2D
 onready var game_start_time = OS.get_ticks_msec()
 onready var menu_layer = $WinMenuLayer
 const SAVE_FILE_PATH = "user://savedata.save"
-func _process(delta):
+func _process(_delta):
 	$Stopwatch/Control/Label.text = get_time()
 
 onready var map=preload("res://Scences/HUD.tscn")
@@ -27,7 +27,6 @@ func get_time():
 		else:
 			msec = "0"+str(msec)
 	return (str(minutes)+":" + str(seconds)+":"+str(msec))
-	print(current_time)
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,11 +65,11 @@ func load_highscore():
 		save_data.close()
 	Stats.highscore = highscore
 	
-func _on_Win_body_entered(body):
+func _on_Win_body_entered(_body):
 	# In your game script or player script when the race is completed:
 	"""print("win")
 	var player_time = current_time
-	var player_name = "Player 1"  # Replace with the player's name
+	var player_name = "Player 1"  # Replace with the player's name #whats this dude :/
 
 	# Create a dictionary to store the player's time and name
 	var player_entry = {

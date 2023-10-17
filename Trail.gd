@@ -4,7 +4,7 @@ extends Line2D
 export var length = 50
 var point = Vector2()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# when the trail is too long it just subtracts points from it so it limits the length of the trail frame by frame
 	global_position = Vector2(0,0)
 	global_rotation = 0

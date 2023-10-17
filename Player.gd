@@ -43,12 +43,12 @@ func _physics_process(delta):
 	#	rpc_unreliable("_sync_position", position)
 	
 	
-func _sync_position(new_position):
+func _sync_position(_new_position):
 	position = new_position
 	emit_signal("player_position_changed" , position)
 
 
-func _on_player_body_entered(area):
+func _on_player_body_entered(_area):
 	emit_signal("win")
 
 
