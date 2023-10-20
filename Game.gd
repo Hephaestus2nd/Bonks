@@ -63,6 +63,8 @@ func load_highscore():
 		save_data.open(SAVE_FILE_PATH, File.READ)
 		highscore = save_data.get_var()
 		save_data.close()
+	else:
+		highscore = 1000000
 	Stats.highscore = highscore
 	
 func _on_Win_body_entered(_body):

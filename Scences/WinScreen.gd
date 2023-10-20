@@ -30,8 +30,11 @@ func get_highscore():
 	return (str(minutes)+":" + str(seconds)+":"+str(msec))
 func _process(_delta):
 	 
-	
-	$WinMenu/VBoxContainer/BestTime.text = "Best Time:"+ get_highscore()
+	if Stats.highscore == 1000000:
+		$WinMenu/VBoxContainer/BestTime.text = "Best Time: No best time recorded"
+		
+	else:
+		$WinMenu/VBoxContainer/BestTime.text = "Best Time:"+ get_highscore()
 
 func _init_win_menu(score):
 	var minutes = score/1000/60

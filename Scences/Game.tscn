@@ -5,7 +5,7 @@
 [ext_resource path="res://Scences/map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scences/Camera2D.gd" type="Script" id=4]
 [ext_resource path="res://Scences/HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Bg_music.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scences/Bg_music.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Fonts/joystix monospace.otf" type="DynamicFontData" id=7]
 [ext_resource path="res://Scences/Win.gd" type="Script" id=8]
 [ext_resource path="res://Scences/WinScreen.tscn" type="PackedScene" id=9]
@@ -17,6 +17,7 @@ glow_enabled = true
 glow_intensity = 0.95
 glow_bloom = 0.25
 glow_hdr_threshold = 0.66
+glow_hdr_luminance_cap = 26.63
 
 [sub_resource type="DynamicFont" id=7]
 size = 56
@@ -34,6 +35,9 @@ height = 1628.0
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+modulate = Color( 1.73725, 1.81961, 0.878431, 1 )
+self_modulate = Color( 1, 1.82, 1.36, 1 )
+show_behind_parent = true
 position = Vector2( 27, -123 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
