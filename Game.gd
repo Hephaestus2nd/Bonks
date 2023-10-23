@@ -2,8 +2,10 @@ extends Node2D
 onready var game_start_time = OS.get_ticks_msec()
 onready var menu_layer = $WinMenuLayer
 const SAVE_FILE_PATH = "user://savedata.save"
+
 func _process(_delta):
-	$Stopwatch/Control/Label.text = get_time()
+	#$Stopwatch/Control/Label.text = get_time()
+	pass
 
 onready var map=preload("res://Scences/HUD.tscn")
 var mm

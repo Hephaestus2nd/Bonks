@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Bonks"
-run/main_scene="res://Scences/Game.tscn"
+run/main_scene="res://Scences/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
