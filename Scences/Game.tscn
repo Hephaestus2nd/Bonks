@@ -33,6 +33,9 @@ height = 1628.0
 
 [node name="Playground" type="Node2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [ -11415.0, 5195.0 ]
+}
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 modulate = Color( 1.73725, 1.81961, 0.878431, 1 )
@@ -48,10 +51,11 @@ position = Vector2( 0, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 4 )
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HUD" parent="UI" instance=ExtResource( 5 )]
 anchor_bottom = 1.0
@@ -65,6 +69,7 @@ texture = ExtResource( 10 )
 [node name="AudioStreamPlayer" parent="." instance=ExtResource( 6 )]
 
 [node name="Stopwatch" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="Stopwatch"]
 anchor_right = 1.0

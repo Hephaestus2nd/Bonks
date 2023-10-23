@@ -4,8 +4,9 @@ onready var menu_layer = $WinMenuLayer
 const SAVE_FILE_PATH = "user://savedata.save"
 
 func _process(_delta):
-	#$Stopwatch/Control/Label.text = get_time()
-	pass
+	#this updates the stopwatch time
+	$Stopwatch/Control/Label.text = get_time()
+	
 
 onready var map=preload("res://Scences/HUD.tscn")
 var mm
@@ -15,23 +16,31 @@ var mm
 var highscore = 1
 var current_time
 func get_time():
+	
+	var A = 10
+	#this gets the time in milliseconds by finding the difference between the current time and the os start time
 	current_time = OS.get_ticks_msec() - game_start_time
+	#this divides the milliseconds into minutes and seconds and milliseconds
 	var minutes = current_time/1000/60
 	var seconds = current_time/1000%60
 	var msec = current_time%1000/10
-	if minutes < 10:
+	#this just detects if the var is a single digit number
+	if minutes < A:
 		minutes = "0" + str(minutes)
-	if seconds <10:
+	if seconds < A:
 		seconds = "0" + str(seconds)
-	if msec < 10:
+	if msec < A:
 		if msec == 0:
 			msec = "00"
 		else:
 			msec = "0"+str(msec)
+		
+	#this just returns a string
 	return (str(minutes)+":" + str(seconds)+":"+str(msec))
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#immediately loads highscore on startup
 	load_highscore()
 	print(highscore)
 	"""$StartButton.connect("pressed", self, "_on_start_button_pressed")
@@ -54,6 +63,7 @@ func _ready():
 #	pass
 
 func save_highscore():
+	#creates a new file and stores the highscore in it
 	var save_data = File.new()
 	save_data.open(SAVE_FILE_PATH, File.WRITE)
 	save_data.store_var(highscore)
@@ -61,11 +71,13 @@ func save_highscore():
 	
 func load_highscore():
 	var save_data = File.new()
+	#checks if the file exists
 	if save_data.file_exists(SAVE_FILE_PATH):
 		save_data.open(SAVE_FILE_PATH, File.READ)
 		highscore = save_data.get_var()
 		save_data.close()
 	else:
+		#if file doesn't exist then set highscore to very high value so most people can beat
 		highscore = 1000000
 	Stats.highscore = highscore
 	
@@ -81,8 +93,11 @@ func _on_Win_body_entered(_body):
 		"time": player_time
 	}"""
 	#since less time is better score
+	#displays current time
 	menu_layer._init_win_menu(current_time)
+	#resets player position so they can't hit the win screen again
 	$Player.position = Vector2()
+	#changes highsore if you beat it
 	if current_time != null and current_time < highscore:
 		
 		highscore = current_time

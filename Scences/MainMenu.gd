@@ -17,4 +17,5 @@ func _ready():
 
 
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://Bonks/Scences/Game.tscn")
+	#changes scene once button is pressed
+	get_tree().change_scene("res://Scences/Game.tscn")
