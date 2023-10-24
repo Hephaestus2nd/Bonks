@@ -78,7 +78,7 @@ func load_highscore():
 		save_data.close()
 	else:
 		#if file doesn't exist then set highscore to very high value so most people can beat
-		highscore = 1000000
+		highscore = -1
 	Stats.highscore = highscore
 	
 func _on_Win_body_entered(_body):
@@ -98,7 +98,8 @@ func _on_Win_body_entered(_body):
 	#resets player position so they can't hit the win screen again
 	$Player.position = Vector2()
 	#changes highsore if you beat it
-	if current_time != null and current_time < highscore:
+	#or if highscore is not set yet i.e is set to -1
+	if (current_time != null and current_time < highscore) or highscore == -1:
 		
 		highscore = current_time
 		save_highscore()

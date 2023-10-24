@@ -9,20 +9,23 @@ var touch = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
+#the var A is how much the boost power decreses by. aka damping or something like that
 var A = 0.97
 
 var new_position
 func _physics_process(delta):
-	
+	#updates position
 	new_position = global_position
 	position = new_position
 	#The inverse of delta so delta doesn't affect the game
 	var undelta = 60
+	#sends global position to global controller
 	Globals.set_player_global_position(global_position)
 
 	#  the horizontal and vertical components of the forces are applied to the centre of the circle
 	var ImpulsePointY = Vector2(0.0,$CollisionShape2D.shape.radius/2)
 	var ImpulsePointX = Vector2($CollisionShape2D.shape.radius/2,0.0)
+	#respawns the player if they fall off the map
 	if position.y > 26000:
 		get_tree().reload_current_scene()
 	
