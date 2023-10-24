@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scences/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
@@ -10,25 +10,33 @@
 [ext_resource path="res://Scences/Win.gd" type="Script" id=8]
 [ext_resource path="res://Scences/WinScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Basic_red_dot.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/pngwing.com.png" type="Texture" id=11]
 
 [sub_resource type="Environment" id=6]
 background_mode = 4
 glow_enabled = true
-glow_intensity = 0.95
-glow_bloom = 0.25
-glow_hdr_threshold = 0.66
-glow_hdr_luminance_cap = 26.63
+glow_intensity = 1.88
+glow_strength = 0.22
+glow_bloom = 0.51
+glow_blend_mode = 1
+glow_hdr_threshold = 0.92
+glow_hdr_luminance_cap = 156.04
+glow_hdr_scale = 2.7
+glow_high_quality = true
+adjustment_enabled = true
+adjustment_brightness = 1.27
+adjustment_contrast = 1.38
+adjustment_saturation = 0.78
 
 [sub_resource type="DynamicFont" id=7]
 size = 56
 font_data = ExtResource( 7 )
 
-[sub_resource type="CapsuleShape2D" id=8]
-radius = 566.0
-height = 5590.0
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 554, 3317 )
 
 [sub_resource type="CapsuleShape2D" id=9]
-radius = 337.0
+radius = 358.0
 height = 1628.0
 
 [node name="Playground" type="Node2D"]
@@ -51,11 +59,10 @@ position = Vector2( 0, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 2, 2 )
 script = ExtResource( 4 )
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HUD" parent="UI" instance=ExtResource( 5 )]
 anchor_bottom = 1.0
@@ -69,7 +76,6 @@ texture = ExtResource( 10 )
 [node name="AudioStreamPlayer" parent="." instance=ExtResource( 6 )]
 
 [node name="Stopwatch" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Stopwatch"]
 anchor_right = 1.0
@@ -89,17 +95,24 @@ align = 1
 [node name="Win" type="Area2D" parent="."]
 position = Vector2( 187837, -25895 )
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
-position = Vector2( 610, -542 )
-shape = SubResource( 8 )
+position = Vector2( 612, -551 )
+shape = SubResource( 10 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Win"]
-position = Vector2( 5935, 1962 )
+position = Vector2( 5922, 1968 )
 shape = SubResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="Win"]
+position = Vector2( 608.994, -565.5 )
+scale = Vector2( 0.201416, 0.845875 )
+texture = ExtResource( 11 )
+
+[node name="Sprite2" type="Sprite" parent="Win"]
+position = Vector2( 5965, 2131 )
+scale = Vector2( 0.118231, 0.2595 )
+texture = ExtResource( 11 )
 
 [node name="WinMenuLayer" parent="." instance=ExtResource( 9 )]
 
