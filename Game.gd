@@ -42,14 +42,7 @@ func get_time():
 func _ready():
 	#immediately loads highscore on startup
 	load_highscore()
-	"""$StartButton.connect("pressed", self, "_on_start_button_pressed")
-	$StopButton.connect("pressed", self, "_on_stop_button_pressed")
-	$ResetButton.connect("pressed", self, "_on_reset_button_pressed")
-	$Timer.connect("timeout", self, "_on_timer_timeout")
-
-	# Start the timer as soon as the scene begins
-	_on_start_button_pressed()
-"""
+	
 #func set_mm():
 	#mm=map.instance()
 	
@@ -81,16 +74,7 @@ func load_highscore():
 	Stats.highscore = highscore
 	
 func _on_Win_body_entered(_body):
-	# In your game script or player script when the race is completed:
-	"""print("win")
-	var player_time = current_time
-	var player_name = "Player 1"  # Replace with the player's name #whats this dude :/
-
-	# Create a dictionary to store the player's time and name
-	var player_entry = {
-		"name": player_name,
-		"time": player_time
-	}"""
+	
 	#since less time is better score
 	#displays current time
 	menu_layer._init_win_menu(current_time)
