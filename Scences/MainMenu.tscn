@@ -28,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite" type="Sprite" parent="Panel"]
-position = Vector2( 993.383, 541.314 )
+position = Vector2( 990, 540 )
 scale = Vector2( 1.0422, 1.09321 )
 texture = ExtResource( 2 )
 
