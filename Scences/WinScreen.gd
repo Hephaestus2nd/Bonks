@@ -41,7 +41,7 @@ func _process(_delta):
 
 func _init_win_menu(score):
 	
-	score_label.text = "Time:" + get_time(score )
+	score_label.text = "Time:" + get_time(score)
 	win_menu.visible = true
 	
 	
