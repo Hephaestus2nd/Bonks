@@ -1,11 +1,11 @@
 extends RigidBody2D
 signal win
+#initially boost is 0
 var boost = 0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 signal player_position_changed(position)
-var touch = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -36,9 +36,13 @@ func _physics_process(delta):
 		#reloads the game and restarts it
 		get_tree().reload_current_scene()
 	#all inputs are multiplied by delta so they get scaled by frame rate
+	#then get multiplied by 60 again via undelta to undo it
+	#delta only has an effect if frame rate is not 60 then physics are scaled
+	# its already scaled via physics_process but this is just for extra safety
 	# applies force in a certain direction when keys are pressed
 	if Input.is_action_pressed("up") :
 		apply_impulse(ImpulsePointY , Vector2(0,-boost*undelta*delta/20))
+		#every single frame
 		boost = boost * A
 		
 		$CanvasLayer/Label.text = "Boost Power: " + str(boost)
@@ -68,13 +72,12 @@ func _on_player_body_entered(_area):
 func _on_Player_body_entered(body):
 	# what happens every frame when the player is touching map 
 	var speed = get_linear_velocity() 
-	print(speed)
-	touch = true
+	
 	#refreshes boost power
 	boost = 800
 	#updates the UI
 	$CanvasLayer/Label.text = "Boost Power: " + str(boost)	
-	print("collision oocccuers with " + body.get_name())
+
 	
 	
 	

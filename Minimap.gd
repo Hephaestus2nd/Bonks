@@ -17,20 +17,9 @@ extends Control
 var player = null  # Variable to hold the player instance
 
 func _ready():
+	# this just displayer the camera and sets the zoom
 	$ViewportContainer/Viewport/Minimap/Dot/Camera2D.zoom=Vector2(30,30)
 	
-	#failed networking
-	"""var player_scene = preload("res://Scences/Player.tscn")
-	player = player_scene.instance()
-	add_child(player)  # Add the player as a child of the minimap scene
-
-	# Connect to the remote function
-	if player.network_master:
-		player.connect("remote_sync_position", self, "_on_remote_sync_position")
-
-func _on_remote_sync_position(new_position):
-	dot.position = new_position / 8
-"""
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

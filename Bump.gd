@@ -5,12 +5,8 @@ extends RigidBody2D
 # var a = 2
 # var b = "text"
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 func _process(delta):
+	#applies force to centre of rectangle
 	var ImpulsePointY = Vector2(0.0,$CollisionShape2D.shape.extents.y/2)
 	
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):

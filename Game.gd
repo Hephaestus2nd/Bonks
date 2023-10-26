@@ -42,7 +42,6 @@ func get_time():
 func _ready():
 	#immediately loads highscore on startup
 	load_highscore()
-	print(highscore)
 	"""$StartButton.connect("pressed", self, "_on_start_button_pressed")
 	$StopButton.connect("pressed", self, "_on_stop_button_pressed")
 	$ResetButton.connect("pressed", self, "_on_reset_button_pressed")
@@ -103,15 +102,3 @@ func _on_Win_body_entered(_body):
 		
 		highscore = current_time
 		save_highscore()
-		
-	
-	
-	
-	
-	
-	
-
-	# Add the player's entry to the high scores list
-	#high_scores.append(player_entry)
-
-	

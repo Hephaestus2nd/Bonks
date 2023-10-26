@@ -22,7 +22,7 @@ func get_time(score):
 		#this just detects if the var is a single digit number
 	if minutes < 10:
 		minutes = "0" + str(minutes)
-	if seconds <10:
+	if seconds < 10:
 		seconds = "0" + str(seconds)
 	if msec < 10:
 		if msec == 0:
