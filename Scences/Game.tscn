@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scences/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Scences/Win.gd" type="Script" id=8]
 [ext_resource path="res://Scences/WinScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Basic_red_dot.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/pngwing.com.png" type="Texture" id=11]
 
 [sub_resource type="Environment" id=6]
 background_mode = 4
@@ -103,16 +102,6 @@ shape = SubResource( 10 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Win"]
 position = Vector2( 5922, 1968 )
 shape = SubResource( 9 )
-
-[node name="Sprite" type="Sprite" parent="Win"]
-position = Vector2( 608.994, -565.5 )
-scale = Vector2( 0.201416, 0.845875 )
-texture = ExtResource( 11 )
-
-[node name="Sprite2" type="Sprite" parent="Win"]
-position = Vector2( 5965, 2131 )
-scale = Vector2( 0.118231, 0.2595 )
-texture = ExtResource( 11 )
 
 [node name="WinMenuLayer" parent="." instance=ExtResource( 9 )]
 
