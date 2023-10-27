@@ -29,9 +29,7 @@ func _physics_process(delta):
 	if position.y > 26000:
 		get_tree().reload_current_scene()
 	
-	if Input.is_action_pressed("quit"):
-		#quits the game
-		get_tree().quit()
+	
 	if Input.is_action_pressed("restart"):
 		#reloads the game and restarts it
 		get_tree().reload_current_scene()

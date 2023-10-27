@@ -66,12 +66,20 @@ margin_bottom = 198.0
 custom_fonts/font = SubResource( 3 )
 text = "Restart? "
 
-[node name="QuitButton" type="Button" parent="WinMenu/VBoxContainer"]
+[node name="Back" type="Button" parent="WinMenu/VBoxContainer"]
 margin_top = 208.0
 margin_right = 659.0
 margin_bottom = 281.0
 custom_fonts/font = SubResource( 4 )
+text = "Back to Main Menu"
+
+[node name="QuitButton" type="Button" parent="WinMenu/VBoxContainer"]
+margin_top = 291.0
+margin_right = 659.0
+margin_bottom = 364.0
+custom_fonts/font = SubResource( 4 )
 text = "Quit? "
 
 [connection signal="pressed" from="WinMenu/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="WinMenu/VBoxContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="WinMenu/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

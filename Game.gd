@@ -5,6 +5,9 @@ const SAVE_FILE_PATH = "user://savedata.save"
 
 func _process(_delta):
 	#this updates the stopwatch time
+	if Input.is_action_pressed("quit"):
+		#quits the game
+		get_tree().quit()
 	$Stopwatch/Control/Label.text = get_time()
 	
 

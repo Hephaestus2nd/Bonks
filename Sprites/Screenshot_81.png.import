@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Marble_Race_Edited.jpg-94bf444d682848f395b1c8b3f9364e88.stex"
+path="res://.import/Screenshot_81.png-ac1204dcf43f44fd9ab681e00fc07ae8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Marble_Race_Edited.jpg"
-dest_files=[ "res://.import/Marble_Race_Edited.jpg-94bf444d682848f395b1c8b3f9364e88.stex" ]
+source_file="res://Sprites/Screenshot_81.png"
+dest_files=[ "res://.import/Screenshot_81.png-ac1204dcf43f44fd9ab681e00fc07ae8.stex" ]
 
 [params]
 

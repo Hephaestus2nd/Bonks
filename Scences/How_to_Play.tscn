@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/helvetica-light-587ebe5a59211.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/Screenshot_81.png" type="Texture" id=2]
+[ext_resource path="res://Scences/How_to_Play.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 31
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 59
+font_data = ExtResource( 1 )
+
+[node name="How_to_Play" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Sprite" type="Sprite" parent="Panel"]
+position = Vector2( 990, 874.625 )
+scale = Vector2( 2.765, 2.765 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -647.5
+margin_right = 647.5
+margin_bottom = 375.0
+custom_fonts/font = SubResource( 1 )
+text = "CONTROLS: WASD or ARROW KEYS:
+
+W/up: Boost upwards
+A/left: move to the left
+S/down:Fall faster
+D/right:Move to the right
+
+Tip: Boost power gets weak the more you use it and only refreshes when you touch something. 
+Keep refresing your boost power to Get speed
+
+The goal is to reach the Golden gates, Keep moving to the right and you'll find it
+
+Shift + Q: Fast quit the game
+Shift + R: Quick restart the game"
+
+[node name="Back" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -606.0
+margin_top = 46.0
+margin_right = 606.0
+margin_bottom = 125.0
+custom_fonts/font = SubResource( 2 )
+text = "Back to Main Menu"
+icon_align = 1
+
+[connection signal="pressed" from="Panel/Back" to="." method="_on_Back_pressed"]

@@ -63,7 +63,7 @@ stream = ExtResource( 5 )
 pitch_scale = 0.54
 
 [node name="Sprite2" type="Sprite" parent="."]
-modulate = Color( 0.0431373, 3.2902, 0.792157, 0.494118 )
+modulate = Color( 0.0901961, 4.01176, 0.792157, 0.494118 )
 position = Vector2( 1.14441e-05, 0.499986 )
 scale = Vector2( 0.1075, 0.108333 )
 texture = ExtResource( 6 )

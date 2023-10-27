@@ -15,16 +15,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func get_time(score):
+	var A = 10
 		#this divides the milliseconds into minutes and seconds and milliseconds
 	var minutes = score/1000/60
 	var seconds = score/1000%60
 	var msec = score%1000/10
 		#this just detects if the var is a single digit number
-	if minutes < 10:
+	if minutes < A:
 		minutes = "0" + str(minutes)
-	if seconds < 10:
+	if seconds < A:
 		seconds = "0" + str(seconds)
-	if msec < 10:
+	if msec < A:
 		if msec == 0:
 			msec = "00"
 		else:
@@ -54,3 +55,7 @@ func _on_RestartButton_pressed():
 func _on_QuitButton_pressed():
 	#closes the game when quit button is pressed
 	get_tree().quit()
+
+
+func _on_Back_pressed():
+	get_tree().change_scene("res://Scences/MainMenu.tscn")
